@@ -12,5 +12,3 @@ jobs:
    - name: Response
     run: |
       echo ${{ steps.Request.outputs.response }}
-      echo ${{ steps.Request.outputs.headers }}
-      echo ${{ fromJson(steps.Request.outputs.response).field_you_want_to_access }}
