@@ -9,7 +9,7 @@ jobs:
    - name: Request
      run: |
        curl -X GET http://wave.webaim.org/api/request?key=uYC6ghs23017&url=https://nice-stone-00b25ea03.2.azurestaticapps.net/
- - name: Response
+   - name: Response
     run: |
       echo ${{ steps.Request.outputs.response }}
       echo ${{ steps.Request.outputs.headers }}
