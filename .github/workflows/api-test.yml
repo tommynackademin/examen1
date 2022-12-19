@@ -2,7 +2,7 @@ name: Test Action
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   use-action:
