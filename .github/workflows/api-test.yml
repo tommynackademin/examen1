@@ -6,6 +6,11 @@ jobs:
  run-updater:
    runs-on: ubuntu-latest
    steps:
-   - name: REST API with curl
+   - name: Request
      run: |
        curl -X GET http://wave.webaim.org/api/request?key=uYC6ghs23017&url=https://nice-stone-00b25ea03.2.azurestaticapps.net/
+ - name: Response
+    run: |
+      echo ${{ steps.Request.outputs.response }}
+      echo ${{ steps.Request.outputs.headers }}
+      echo ${{ fromJson(steps.Request.outputs.response).field_you_want_to_access }}
