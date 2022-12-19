@@ -7,7 +7,7 @@ jobs:
    runs-on: ubuntu-latest
    steps:
    - name: Request
-     run: |
-       curl -X GET http://wave.webaim.org/api/request?key=uYC6ghs23017&url=https://nice-stone-00b25ea03.2.azurestaticapps.net/
-- name: Fetch Data to File
-  uses: gautemo/fetch-api-data-action@1.1.0
+  uses: gautemo/fetch-api-data-action@1.0.2
+with:
+  url: http://wave.webaim.org/api/request?key=uYC6ghs23017&url=https://nice-stone-00b25ea03.2.azurestaticapps.net/
+  file: backup/data.json
