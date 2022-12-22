@@ -18,7 +18,7 @@ jobs:
       - name: Build and Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          ACCESS_TOKEN: test1
+          ACCESS_TOKEN: 
           BRANCH: main # Pushe the updates to the master branch.
           FOLDER: fetch-api-data-action # The location of the data.json file saved by the Fetch API Data action.
           TARGET_FOLDER: public # Saves the data into the 'data' directory on the master branch
