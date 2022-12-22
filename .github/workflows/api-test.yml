@@ -6,6 +6,15 @@ jobs:
  run-updater:
    runs-on: ubuntu-latest
    steps:
-   - name: Request
-     run: |
-       curl https://wave.webaim.org/api/request?key=uYC6ghs23017&url=https://nice-stone-00b25ea03.2.azurestaticapps.net/
+      - name: Fetch API Data 📦
+        uses: JamesIves/fetch-api-data-action@releases/v1
+        with:
+          ENDPOINT: https://wave.webaim.org/api/request?key=uYC6ghs23017&url=https://nice-stone-00b25ea03.2.azurestaticapps.net/
+          retry: true
+      - name: Build and Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: test
+          BRANCH: main # Pushes the updates to the master branch.
+          FOLDER: public # The location of the data.json file saved by the Fetch API Data action.
+          TARGET_FOLDER: data # Saves the data into the 'data' directory on the master branch.
