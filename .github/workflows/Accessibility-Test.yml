@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+      - main
+jobs:
+ run-updater:
+   runs-on: ubuntu-latest
+   steps:
+      - uses: actions/checkout@v2
+        with:
+         token: ${{ secrets.test1 }}
+
+      - name: Fetch API Data 📦
+        uses: JamesIves/fetch-api-data-action@releases/v1
+        with:
+          ENDPOINT: https://wave.webaim.org/api/request?key=wuF9R64d3034&reporttype=3&url=https://nice-stone-00b25ea03.2.azurestaticapps.net/
+          retry: true
+      - name: Build and Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: test1
+          BRANCH: dev # Pushe the updates to the main branch.
+          FOLDER: fetch-api-data-action # The location of the data.json file saved by the Fetch API Data action.
+          TARGET_FOLDER: / # Saves the data into the 'data' directory on the master branch
